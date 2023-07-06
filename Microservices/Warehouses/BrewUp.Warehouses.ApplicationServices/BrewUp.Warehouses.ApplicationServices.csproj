@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="Abstracts\**" />
+      <Compile Remove="DTOs\**" />
+      <EmbeddedResource Remove="Abstracts\**" />
+      <EmbeddedResource Remove="DTOs\**" />
+      <None Remove="Abstracts\**" />
+      <None Remove="DTOs\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+      <PackageReference Include="Muflone" Version="6.2.0" />
+      <PackageReference Include="Muflone.Saga" Version="6.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BrewUp.Warehouses.ReadModel\BrewUp.Warehouses.ReadModel.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="BindingModels\" />
+      <Folder Include="Validators\" />
+    </ItemGroup>
+
+</Project>
