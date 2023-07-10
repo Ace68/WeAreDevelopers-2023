@@ -6,11 +6,11 @@ using MediatR;
 
 namespace BrewUp.Modules.Purchases;
 
-public sealed class PurchasesOrchestrator : IPurchasesOrchestrator
+public sealed class PurchasesFacade : IPurchasesFacade
 {
 	private readonly IMediator _serviceBus;
 
-	public PurchasesOrchestrator(IMediator serviceBus)
+	public PurchasesFacade(IMediator serviceBus)
 	{
 		_serviceBus = serviceBus ?? throw new ArgumentNullException(nameof(serviceBus));
 	}
