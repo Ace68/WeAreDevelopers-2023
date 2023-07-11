@@ -30,11 +30,10 @@ public class PurchasesModule : IModule
 			.Produces(StatusCodes.Status201Created)
 			.WithName("CreateOrder");
 
-		group.MapPost("/Order/{id}/complete", PurchasesEndpoints.HandleSetOrderStatusToComplete)
+		group.MapPut("/Order/{id}/complete", PurchasesEndpoints.HandleSetOrderStatusToComplete)
 			.Produces(StatusCodes.Status400BadRequest)
-			.Produces(StatusCodes.Status200OK)
+			.Produces(StatusCodes.Status202Accepted)
 			.WithName("SetStatusToComplete");
-
 
 		return endpoints;
 	}

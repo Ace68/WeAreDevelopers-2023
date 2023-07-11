@@ -45,7 +45,9 @@ public static class RabbitMqHelper
 				mufloneConnectionFactory, loggerFactory),
 			new BeerLoadedInStockSagaConsumer(serviceProvider.GetRequiredService<IServiceBus>(),
 				serviceProvider.GetRequiredService<ISagaRepository>(),
-				mufloneConnectionFactory, loggerFactory)
+				mufloneConnectionFactory, loggerFactory),
+
+			new CreateBeerConsumer(new ConsumerConfiguration(), mufloneConnectionFactory, loggerFactory),
 		});
 
 		return services;

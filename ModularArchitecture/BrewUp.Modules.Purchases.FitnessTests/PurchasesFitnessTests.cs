@@ -8,22 +8,18 @@ namespace BrewUp.Modules.Purchases.FitnessTests;
 
 public class PurchasesFitnessTests
 {
-	private static readonly Architecture Architecture = new ArchLoader().LoadAssemblies(typeof(IPurchasesFacade).Assembly).Build();
+	private static readonly Architecture PurchasesArchitecture
+		= new ArchLoader().LoadAssemblies(typeof(IPurchasesAdapter).Assembly).Build();
 
 	private readonly IObjectProvider<IType> _purchasesModule =
 		Types().That().ResideInAssembly("Brewup.Modules.Purchases").As("Purchases Module");
 
 	private readonly IObjectProvider<Class> _purchasesClasses =
-		Classes().That().ImplementInterface("IPurchasesOrchestrator").As("Purchases Classes");
-
-	private readonly IObjectProvider<IType> _forbiddenModule = Types().
-		That().
-		ResideInNamespace("Brewup.Modules.Warehouse").
-		As("Forbidden Layer");
+		Classes().That().ImplementInterface("IPurchasesFacade").As("Purchases Classes");
 
 	private readonly IObjectProvider<IType> _forbiddenLayer = Types().
 		That().
-		ResideInNamespace("BrewUp.Modules.Warehouses").
+		HaveFullNameContaining("BrewUp.Modules.Warehouses").
 		As("Forbidden Layer");
 
 	private readonly IObjectProvider<Interface> _forbiddenInterfaces = Interfaces().
@@ -37,7 +33,7 @@ public class PurchasesFitnessTests
 		IArchRule forbiddenInterfacesShouldBeInForbiddenLayer =
 			Interfaces().That().Are(_forbiddenInterfaces).Should().Be(_forbiddenLayer);
 
-		forbiddenInterfacesShouldBeInForbiddenLayer.Check(Architecture);
+		forbiddenInterfacesShouldBeInForbiddenLayer.Check(PurchasesArchitecture);
 	}
 
 	[Fact]
@@ -46,17 +42,17 @@ public class PurchasesFitnessTests
 		IArchRule purchasesClassesShouldBeInPurchasesModule =
 			Classes().That().Are(_purchasesClasses).Should().Be(_purchasesModule);
 		IArchRule forbiddenInterfacesShouldBeInForbiddenLayer =
-			Interfaces().That().Are(_forbiddenInterfaces).Should().Be(_forbiddenModule);
+			Interfaces().That().Are(_forbiddenInterfaces).Should().Be(_forbiddenLayer);
 
 		//check if your architecture fulfills your rules
-		purchasesClassesShouldBeInPurchasesModule.Check(Architecture);
-		forbiddenInterfacesShouldBeInForbiddenLayer.Check(Architecture);
+		purchasesClassesShouldBeInPurchasesModule.Check(PurchasesArchitecture);
+		forbiddenInterfacesShouldBeInForbiddenLayer.Check(PurchasesArchitecture);
 
 		//you can also combine your rules
 		IArchRule combinedArchRule =
 			purchasesClassesShouldBeInPurchasesModule
 				.And(forbiddenInterfacesShouldBeInForbiddenLayer);
 
-		combinedArchRule.Check(Architecture);
+		combinedArchRule.Check(PurchasesArchitecture);
 	}
 }

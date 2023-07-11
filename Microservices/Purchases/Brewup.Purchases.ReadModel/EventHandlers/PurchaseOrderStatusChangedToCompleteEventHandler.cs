@@ -11,7 +11,7 @@ public sealed class PurchaseOrderStatusChangedToCompleteEventHandler : DomainEve
 	private readonly IEventBus _eventBus;
 	private readonly IPurchaseOrderService _purchaseOrderService;
 
-	public PurchaseOrderStatusChangedToCompleteEventHandler(IEventBus eventBus, ILoggerFactory loggerFactory, IPurchaseOrderService purchaseOrderService) 
+	public PurchaseOrderStatusChangedToCompleteEventHandler(IEventBus eventBus, ILoggerFactory loggerFactory, IPurchaseOrderService purchaseOrderService)
 		  : base(loggerFactory)
 	{
 		_eventBus = eventBus;
@@ -22,7 +22,7 @@ public sealed class PurchaseOrderStatusChangedToCompleteEventHandler : DomainEve
 	{
 		await _purchaseOrderService.UpdateStatusToComplete(new PurchaseOrderId(@event.AggregateId.Value));
 
-		//We are lazy, but in production it's advisable to create a dedicated EventHandler to send this integration event
+		//I'm lazy, but in production it's advisable to create a dedicated EventHandler to send this integration event
 		await _eventBus.PublishAsync(new BeersReceived(new PurchaseOrderId(@event.AggregateId.Value), Guid.NewGuid(), @event.Lines), cancellationToken);
 	}
 }

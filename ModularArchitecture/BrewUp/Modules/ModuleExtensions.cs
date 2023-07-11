@@ -1,40 +1,39 @@
-﻿namespace BrewUp.Modules
+﻿namespace BrewUp.Modules;
+
+public static class ModuleExtensions
 {
-	public static class ModuleExtensions
+	private static readonly IList<IModule> RegisteredModules = new List<IModule>();
+
+	public static WebApplicationBuilder RegisterModules(this WebApplicationBuilder builder)
 	{
-		private static readonly IList<IModule> RegisteredModules = new List<IModule>();
-
-		public static WebApplicationBuilder RegisterModules(this WebApplicationBuilder builder)
+		var modules = DiscoverModules();
+		foreach (var module in modules
+					 .Where(m => m.IsEnabled)
+					 .OrderBy(m => m.Order))
 		{
-			var modules = DiscoverModules();
-			foreach (var module in modules
-						 .Where(m => m.IsEnabled)
-						 .OrderBy(m => m.Order))
-			{
-				module.RegisterModule(builder);
-				RegisteredModules.Add(module);
-			}
-
-			return builder;
+			module.RegisterModule(builder);
+			RegisteredModules.Add(module);
 		}
 
-		public static WebApplication MapEndpoints(this WebApplication app)
-		{
-			foreach (var module in RegisteredModules)
-			{
-				module.MapEndpoints(app);
-			}
+		return builder;
+	}
 
-			return app;
+	public static WebApplication MapEndpoints(this WebApplication app)
+	{
+		foreach (var module in RegisteredModules)
+		{
+			module.MapEndpoints(app);
 		}
 
-		private static IEnumerable<IModule> DiscoverModules()
-		{
-			return typeof(IModule).Assembly
-				.GetTypes()
-				.Where(p => p.IsClass && p.IsAssignableTo(typeof(IModule)))
-				.Select(Activator.CreateInstance)
-				.Cast<IModule>();
-		}
+		return app;
+	}
+
+	private static IEnumerable<IModule> DiscoverModules()
+	{
+		return typeof(IModule).Assembly
+			.GetTypes()
+			.Where(p => p.IsClass && p.IsAssignableTo(typeof(IModule)))
+			.Select(Activator.CreateInstance)
+			.Cast<IModule>();
 	}
 }

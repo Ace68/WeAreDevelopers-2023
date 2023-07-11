@@ -34,7 +34,8 @@ public static class RabbitMqHelper
 			new CreatePurchaseOrderConsumer(repository, connectionFactory, loggerFactory),
 			new ChangePurchaseOrderStatusToCompleteConsumer(repository, connectionFactory, loggerFactory),
 			new PurchaseOrderCreatedConsumer(serviceProvider.GetRequiredService<IPurchaseOrderService>(), connectionFactory, loggerFactory),
-			new PurchaseOrderStatusChangedToCompleteConsumer(serviceProvider.GetRequiredService<IEventBus>(), serviceProvider.GetRequiredService<IPurchaseOrderService>(), connectionFactory, loggerFactory)
+			new PurchaseOrderStatusChangedToCompleteConsumer(serviceProvider.GetRequiredService<IEventBus>(), serviceProvider.GetRequiredService<IPurchaseOrderService>(), connectionFactory, loggerFactory),
+			new BeersReceivedConsumer(connectionFactory, loggerFactory)
 		});
 		return services;
 	}
