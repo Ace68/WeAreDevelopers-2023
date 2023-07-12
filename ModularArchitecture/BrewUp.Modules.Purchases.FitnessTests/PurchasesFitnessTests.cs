@@ -9,7 +9,7 @@ namespace BrewUp.Modules.Purchases.FitnessTests;
 public class PurchasesFitnessTests
 {
 	private static readonly Architecture PurchasesArchitecture
-		= new ArchLoader().LoadAssemblies(typeof(IPurchasesAdapter).Assembly).Build();
+		= new ArchLoader().LoadAssemblies(typeof(IPurchasesFacade).Assembly).Build();
 
 	private readonly IObjectProvider<IType> _purchasesModule =
 		Types().That().ResideInAssembly("Brewup.Modules.Purchases").As("Purchases Module");

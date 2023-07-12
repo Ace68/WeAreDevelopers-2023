@@ -14,7 +14,7 @@ public static class WarehouseHelper
 		services.AddFluentValidationAutoValidation();
 		services.AddValidatorsFromAssemblyContaining<BeersReceivedValidator>();
 
-		services.AddScoped<IWarehouseOrchestrator, WarehouseOrchestrator>();
+		services.AddScoped<IWarehouseFacade, WarehouseFacade>();
 	
 		return services;
 	}

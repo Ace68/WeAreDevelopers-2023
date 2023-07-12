@@ -4,11 +4,11 @@ using BrewUp.Warehouses.SharedKernel.Dtos;
 
 namespace BrewUp.Warehouses.ApplicationServices;
 
-internal class WarehouseOrchestrator : IWarehouseOrchestrator
+internal class WarehouseFacade : IWarehouseFacade
 {
 	private readonly IWarehouseAvailabilityService _warehouseAvailabilityService;
 
-	public WarehouseOrchestrator(IWarehouseAvailabilityService warehouseAvailabilityService)
+	public WarehouseFacade(IWarehouseAvailabilityService warehouseAvailabilityService)
 	{
 		_warehouseAvailabilityService = warehouseAvailabilityService;
 	}

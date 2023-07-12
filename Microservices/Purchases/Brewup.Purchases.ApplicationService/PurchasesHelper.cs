@@ -12,7 +12,7 @@ public static class PurchasesHelper
 		services.AddFluentValidationAutoValidation();
 		services.AddValidatorsFromAssemblyContaining<OrderValidator>();
 		services.AddSingleton<ValidationHandler>();
-		services.AddScoped<IPurchasesOrchestrator, PurchasesOrchestrator>();
+		services.AddScoped<IPurchasesFacade, PurchasesFacade>();
 		return services;
 	}
 }

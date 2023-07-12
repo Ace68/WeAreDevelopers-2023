@@ -7,7 +7,7 @@ namespace Brewup.Purchases.ApplicationService.Endpoints;
 public static class PurchasesEndpoints
 {
 	public static async Task<IResult> HandleCreateOrder(
-		IPurchasesOrchestrator purchasesOrchestrator,
+		IPurchasesFacade purchasesFacade,
 		IValidator<BindingModels.Order> validator,
 		ValidationHandler validationHandler,
 		BindingModels.Order body,
@@ -17,14 +17,14 @@ public static class PurchasesEndpoints
 		if (!validationHandler.IsValid)
 			return Results.BadRequest(validationHandler.Errors);
 
-		var orderId = await purchasesOrchestrator.CreateOrderAsync(body, cancellationToken);
+		var orderId = await purchasesFacade.CreateOrderAsync(body, cancellationToken);
 
 		return Results.Created($"/api/v1/Order/{orderId}", orderId);
 	}
 
-	public static async Task<IResult> HandleSetOrderStatusToComplete(IPurchasesOrchestrator purchasesOrchestrator, Guid id, CancellationToken cancellationToken)
+	public static async Task<IResult> HandleSetOrderStatusToComplete(IPurchasesFacade purchasesFacade, Guid id, CancellationToken cancellationToken)
 	{
-		await purchasesOrchestrator.ChangeStatusToComplete(id, cancellationToken);
+		await purchasesFacade.ChangeStatusToComplete(id, cancellationToken);
 		return Results.Ok();
 	}
 }

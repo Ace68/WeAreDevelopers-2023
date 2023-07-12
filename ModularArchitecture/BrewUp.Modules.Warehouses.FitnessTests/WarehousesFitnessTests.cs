@@ -11,15 +11,15 @@ public class WarehousesFitnessTests
 {
 	// Load your architecture once at the start to maximize performance of your tests
 	private static readonly Architecture BrewUpArchitecture =
-		new ArchLoader().LoadAssemblies(typeof(WarehousesAdapter).Assembly,
-			typeof(PurchasesAdapter).Assembly)
+		new ArchLoader().LoadAssemblies(typeof(WarehousesFacade).Assembly,
+			typeof(PurchasesFacade).Assembly)
 			.Build();
 
 	private readonly IObjectProvider<IType> _warehousesModule =
 		Types().That().ResideInNamespace("BrewUp.Modules.Warehouses").As("Warehouses Module");
 
-	private readonly IObjectProvider<Class> _warehousesAdapter =
-		Classes().That().ImplementInterface("IWarehousesAdapter").As("Warehouses Adapter");
+	private readonly IObjectProvider<Class> _warehousesFacade =
+		Classes().That().ImplementInterface("IWarehousesAdapter").As("Warehouses Facade");
 
 	private readonly IObjectProvider<IType> _purchasesModule =
 		Types().That().ResideInNamespace("BrewUp.Modules.Purchases").As("Purchases Module");
@@ -30,17 +30,16 @@ public class WarehousesFitnessTests
 	[Fact]
 	public void TypesShouldBeInCorrectLayer()
 	{
-		//you can use the fluent API to write your own rules
 		IArchRule warehousesClassesShouldBeInWarehousesModule =
-			Classes().That().Are(typeof(WarehousesAdapter)).Should().Be(_warehousesModule);
+			Classes().That().Are(typeof(WarehousesFacade)).Should().Be(_warehousesModule);
 		IArchRule forbiddenInterfacesShouldBeInForbiddenLayer =
 			Interfaces().That().Are(_purchasesInterfaces).Should().Be(_purchasesModule);
 
-		//check if your architecture fulfils your rules
+		// check if your architecture fulfils your rules
 		warehousesClassesShouldBeInWarehousesModule.Check(BrewUpArchitecture);
 		forbiddenInterfacesShouldBeInForbiddenLayer.Check(BrewUpArchitecture);
 
-		//you can also combine your rules
+		// combine rules
 		IArchRule combinedArchRule =
 			warehousesClassesShouldBeInWarehousesModule.And(forbiddenInterfacesShouldBeInForbiddenLayer);
 		combinedArchRule.Check(BrewUpArchitecture);
@@ -49,7 +48,7 @@ public class WarehousesFitnessTests
 	[Fact]
 	public void WarehousesModuleShouldNotAccessPurchasesModule()
 	{
-		IArchRule warehousesModuleShouldNotAccessPurchasesModule = Types().That().Are(typeof(WarehousesAdapter)).Should()
+		IArchRule warehousesModuleShouldNotAccessPurchasesModule = Types().That().Are(typeof(WarehousesFacade)).Should()
 			.NotDependOnAny(_purchasesModule).Because("it's forbidden");
 		warehousesModuleShouldNotAccessPurchasesModule.Check(BrewUpArchitecture);
 	}
@@ -57,7 +56,7 @@ public class WarehousesFitnessTests
 	[Fact]
 	public void PurchasesClassesShouldHaveCorrectName()
 	{
-		Classes().That().AreAssignableTo(typeof(PurchasesAdapter)).Should().HaveNameContaining("BrewUp.Modules.Purchases")
+		Classes().That().AreAssignableTo(typeof(IPurchasesFacade)).Should().HaveNameContaining("BrewUp.Modules.Purchases")
 			.Check(BrewUpArchitecture);
 	}
 

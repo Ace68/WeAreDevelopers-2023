@@ -4,9 +4,10 @@ namespace BrewUp.Warehouses.ApplicationServices.Endpoints;
 
 public static class WarehouseEndpoints
 {
-	public static async Task<IResult> HandleGetAvailability(IWarehouseOrchestrator warehouseOrchestrator, CancellationToken cancellationToken)
+	public static async Task<IResult> HandleGetAvailability(IWarehouseFacade warehouseFacade,
+		CancellationToken cancellationToken)
 	{
-		var availability = await warehouseOrchestrator.GetBeerAvailabilityAsync(default);
+		var availability = await warehouseFacade.GetBeerAvailabilityAsync(cancellationToken);
 
 		return Results.Ok(availability);
 	}

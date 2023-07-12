@@ -1,6 +1,6 @@
 ﻿namespace BrewUp.Modules.Warehouses;
 
-public interface IWarehousesAdapter
+public interface IWarehousesFacade
 {
 
 }

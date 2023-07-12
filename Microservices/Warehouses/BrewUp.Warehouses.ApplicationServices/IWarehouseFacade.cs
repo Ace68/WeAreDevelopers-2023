@@ -3,7 +3,7 @@ using BrewUp.Warehouses.SharedKernel.Dtos;
 
 namespace BrewUp.Warehouses.ApplicationServices;
 
-public interface IWarehouseOrchestrator
+public interface IWarehouseFacade
 {
 	Task<PagedResult<BeerJson>> GetBeerAvailabilityAsync(CancellationToken cancellationToken);
 }
