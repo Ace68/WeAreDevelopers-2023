@@ -39,9 +39,11 @@ As you can see, we use a common language to describe our intentions inside the E
 # Hands On
 It's time to get our hands dirty.
 So, because software development is a collaborative activity, split up in groups and try to implement a solution to solve the business problem.
+You don't need to write the code, but it's important to looking for a solution that can evolve if the business will grow.
 
 # Share
-Sharing solutions
+Sharing solutions  
+Every group has to share its solution to the other, and explain why they made those choices
 
 # Monolithic vs Microservices
 Both, monolithic and microservices, have pros and cons.  
@@ -72,8 +74,8 @@ Are there structural decisions in architecture that should be avoided to make ev
 # Modular Monolithic
 ***Gall's Law***  
 A complex system that works is invariably found to have evolved from a simple system that worked. The inverse proposition also appears to be true:  
-A complex system designed from scratch never works and cannot be made to work. You have to stat over, beginning with a working simple system.
-So let me introduce to you a simple, but not easy, scenario on which we will try some experiments today.  
+A complex system designed from scratch never works and cannot be made to work. You have to stat over, beginning with a working simple system.  
+So, after hearing this theorem, are you still confident about starting a new project directly with microservices?
 
 # References
 System design is inherently about boundaries (what's in, what's out, what spans, what move between), and about tradeoffs.
