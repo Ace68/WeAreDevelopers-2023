@@ -5,9 +5,10 @@ Usually someone ask to us to build a solution to solve some business problem, an
 We have a lot of possibilities, monolithic, microservices, serverless, SOA, EDA, etc.  
 The first problem that we encounter is that at the moment of taking this decision we have the lowest level of knowledge about the domain on which we are going to work.  
 In this situation it's easy to make things complicated, but it's complicated to make them simple (Gall's law).  
+We will come back on Gall's law later in this workshop.  
 
 # Scenario
-We will work on this scenario: the CEO of a brewery ask us to create a solution to manage the purchases of the beers by his suppliers, put the beers into the warehouse when the order will be closed, and the send a notification to his customers about the available beers.
+We will work on this scenario: the CEO of a brewery ask to us to create a system to manage the purchases of the beers by his suppliers, put the beers into the warehouse when the order will be closed, and the send a notification to his customers about the available beers.
 
 # Avoid Ignorance
 Back in 2000,Philip Armour published an article called "Five Orders of Ignorance" with subtitle "Viewing software developments as knowledge acquisition and ignorance reduction".

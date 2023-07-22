@@ -7,9 +7,10 @@ public static class ModuleExtensions
 	public static WebApplicationBuilder RegisterModules(this WebApplicationBuilder builder)
 	{
 		var modules = DiscoverModules();
-		foreach (var module in modules
-					 .Where(m => m.IsEnabled)
-					 .OrderBy(m => m.Order))
+		modules = modules.Where(m => m.IsEnabled)
+			.OrderBy(m => m.Order);
+
+		foreach (var module in modules)
 		{
 			module.RegisterModule(builder);
 			RegisteredModules.Add(module);
