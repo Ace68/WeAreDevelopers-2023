@@ -5,7 +5,7 @@ namespace BrewUp.Modules.Purchases.ReadModel.EventHandlers;
 
 public class PurchaseOrderCreatedEventHandler : DomainEventHandlerBase<PurchaseOrderCreated>
 {
-	public override Task Handle(PurchaseOrderCreated notification, CancellationToken cancellationToken)
+	public override Task Handle(PurchaseOrderCreated @event, CancellationToken cancellationToken)
 	{
 		// Update the read model
 		return Task.CompletedTask;

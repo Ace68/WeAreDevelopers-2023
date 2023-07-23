@@ -40,7 +40,7 @@ public sealed class BeersReceivedSaga :
 		await _serviceBus.Send(loadBeerInStock, cancellationToken);
 	}
 
-	public Task Handle(BeerLoadedInStock notification, CancellationToken cancellationToken)
+	public Task Handle(BeerLoadedInStock @event, CancellationToken cancellationToken)
 	{
 		// Send email, update warehouse, etc.
 		return Task.CompletedTask;

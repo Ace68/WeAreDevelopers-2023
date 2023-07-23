@@ -16,7 +16,7 @@ public class ChangePurchaseOrderStatusToCompleteCommandHandler : CommandHandlerB
 		_serviceBus = serviceBus;
 	}
 
-	public override async Task Handle(ChangePurchaseOrderStatusToComplete request, CancellationToken cancellationToken)
+	public override async Task Handle(ChangePurchaseOrderStatusToComplete command, CancellationToken cancellationToken)
 	{
 		// Do something
 		var lines = Enumerable.Empty<OrderLine>();
@@ -38,7 +38,7 @@ public class ChangePurchaseOrderStatusToCompleteCommandHandler : CommandHandlerB
 				},
 			},
 		});
-		var purchaseOrderStatusCompleted = new PurchaseOrderStatusChangedToComplete(request.PurchaseOrderId, lines);
+		var purchaseOrderStatusCompleted = new PurchaseOrderStatusChangedToComplete(command.PurchaseOrderId, lines);
 		await _serviceBus.Publish(purchaseOrderStatusCompleted, cancellationToken);
 	}
 }

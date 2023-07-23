@@ -10,6 +10,14 @@ We will come back on Gall's law later in this workshop.
 # Scenario
 We will work on this scenario: the CEO of a brewery ask to us to create a system to manage the purchases of the beers by his suppliers, put the beers into the warehouse when the order will be closed, and the send a notification to his customers about the available beers.
 
+# EventStorming
+EventStorming is a family of workshop united by one principle: the possibility of representing the complexity of the organizations using Events as a tool for exploration.  
+The other key principle is that of exploration on collaboration design with different stakeholders and different interests.  
+The three main formats are:
+> - Big Picture
+> - Process Modeling
+> - Software Design
+
 # Avoid Ignorance
 Back in 2000,Philip Armour published an article called "Five Orders of Ignorance" with subtitle "Viewing software developments as knowledge acquisition and ignorance reduction".
 The article identifies file level of it

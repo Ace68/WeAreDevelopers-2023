@@ -4,4 +4,5 @@ using BrewUp.Shared.Dtos;
 
 namespace BrewUp.Modules.Purchases.Messages.Events;
 
-public record PurchaseOrderStatusChangedToComplete(PurchaseOrderId PurchaseOrderId, IEnumerable<OrderLine> Lines) : DomainEvent(PurchaseOrderId);
+public record PurchaseOrderStatusChangedToComplete(PurchaseOrderId PurchaseOrderId,
+	IEnumerable<OrderLine> Lines) : DomainEvent(PurchaseOrderId);

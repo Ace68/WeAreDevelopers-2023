@@ -14,9 +14,9 @@ public class PurchaseOrderStatusChangedToCompleteEventHandler : DomainEventHandl
 		_serviceBus = serviceBus;
 	}
 
-	public override async Task Handle(PurchaseOrderStatusChangedToComplete notification, CancellationToken cancellationToken)
+	public override async Task Handle(PurchaseOrderStatusChangedToComplete @event, CancellationToken cancellationToken)
 	{
-		var beersReceived = new BeersReceived(notification.PurchaseOrderId, notification.Lines);
+		var beersReceived = new BeersReceived(@event.PurchaseOrderId, @event.Lines);
 		await _serviceBus.Publish(beersReceived, cancellationToken);
 	}
 }

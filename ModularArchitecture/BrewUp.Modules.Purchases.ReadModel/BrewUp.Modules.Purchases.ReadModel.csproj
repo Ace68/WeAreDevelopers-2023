@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="EventHandlers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BrewUp.Modules.Purchases.Messages\BrewUp.Modules.Purchases.Messages.csproj" />
   </ItemGroup>
 

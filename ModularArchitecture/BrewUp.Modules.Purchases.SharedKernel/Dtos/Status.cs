@@ -2,10 +2,10 @@
 
 public class Status : Enumeration
 {
-	public static Status Created = new Status(1, nameof(Created).ToLowerInvariant());
-	public static Status Sent = new Status(1, nameof(Sent).ToLowerInvariant());
-	public static Status Complete = new Status(2, nameof(Complete).ToLowerInvariant());
-	public static Status Cancelled = new Status(3, nameof(Cancelled).ToLowerInvariant());
+	public static Status Created = new(1, nameof(Created).ToLowerInvariant());
+	public static Status Sent = new(1, nameof(Sent).ToLowerInvariant());
+	public static Status Complete = new(2, nameof(Complete).ToLowerInvariant());
+	public static Status Cancelled = new(3, nameof(Cancelled).ToLowerInvariant());
 
 	public static IEnumerable<Status> List() => new[] { Sent, Complete, Cancelled };
 

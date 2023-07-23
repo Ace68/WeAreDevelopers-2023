@@ -14,9 +14,9 @@ public class LoadBeerInStockCommandHandler : CommandHandlerBase<LoadBeerInStock>
 		_serviceBus = serviceBus;
 	}
 
-	public override async Task Handle(LoadBeerInStock request, CancellationToken cancellationToken)
+	public override async Task Handle(LoadBeerInStock command, CancellationToken cancellationToken)
 	{
-		var beerLoadedInStock = new BeerLoadedInStock(request.BeerId, request.Stock, request.Price, request.PurchaseOrderId);
+		var beerLoadedInStock = new BeerLoadedInStock(command.BeerId, command.Stock, command.Price, command.PurchaseOrderId);
 		await _serviceBus.Publish(beerLoadedInStock, cancellationToken);
 	}
 }

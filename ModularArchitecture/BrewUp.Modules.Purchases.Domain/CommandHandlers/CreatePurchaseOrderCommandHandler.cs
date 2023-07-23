@@ -14,10 +14,10 @@ public sealed class CreatePurchaseOrderCommandHandler : CommandHandlerBase<Creat
 		_serviceBus = serviceBus;
 	}
 
-	public override async Task Handle(CreatePurchaseOrder request, CancellationToken cancellationToken)
+	public override async Task Handle(CreatePurchaseOrder command, CancellationToken cancellationToken)
 	{
-		// Do something with the request
-		var purchaseOrderCreated = new PurchaseOrderCreated(request.PurchaseOrderId, request.SupplierId, request.Date, request.Lines);
+		// Do something with the command
+		var purchaseOrderCreated = new PurchaseOrderCreated(command.PurchaseOrderId, command.SupplierId, command.Date, command.Lines);
 		await _serviceBus.Publish(purchaseOrderCreated, cancellationToken);
 	}
 }
