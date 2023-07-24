@@ -7,16 +7,17 @@ The first problem that we encounter is that at the moment of taking this decisio
 In this situation it's easy to make things complicated, but it's complicated to make them simple (Gall's law).  
 We will come back on Gall's law later in this workshop.  
 
+# What is Evolutionary Architecture?
+A metaphor attempts to describe similarities between two unrelated thins in order to clarify their essentials elements. A good example of this is with software architecture. We commonly attempt to describe software architecture by comparing it to the structure of a building.  
+The old view is that in both cases are things that, once in place, are very hard to change later. And that's exactly where the building metaphor breaks down.  
+Today, the building metaphor for software architecture is no longer a valid one.
+
+> - Incremental: Evolutionary architectures are built one part at a time, with many different increments. Speed to the next increment is key.  
+> - Fitness Functions: Every system at different points of their life need to optimize to be "fit" for its environment. Evolutionary architectures make it explicit what "fit" means with as much automation as possible.  
+> - Multiple Dimensions: Evolutionary architectures must support both *technical* and *domain* changes.
+
 # Scenario
 We will work on this scenario: the CEO of a brewery ask to us to create a system to manage the purchases of the beers by his suppliers, put the beers into the warehouse when the order will be closed, and the send a notification to his customers about the available beers.
-
-# EventStorming
-EventStorming is a family of workshop united by one principle: the possibility of representing the complexity of the organizations using Events as a tool for exploration.  
-The other key principle is that of exploration on collaboration design with different stakeholders and different interests.  
-The three main formats are:
-> - Big Picture
-> - Process Modeling
-> - Software Design
 
 # Avoid Ignorance
 Back in 2000,Philip Armour published an article called "Five Orders of Ignorance" with subtitle "Viewing software developments as knowledge acquisition and ignorance reduction".
@@ -42,6 +43,15 @@ Requirements not only focus on the solution and hide problems, but requirements 
 The more levels of translation that are being added, the less relevant information reaches the receiver without disturbed beyond recognition.  
 The translation slows down communication.  
 Learning the Domain Language is crucial to establish effective communication between domain experts and developers.  
+
+# EventStorming
+EventStorming is a family of workshop united by one principle: the possibility of representing the complexity of the organizations using Events as a tool for exploration.  
+The other key principle is that of exploration on collaboration design with different stakeholders and different interests.  
+The three main formats are:
+> - Big Picture
+> - Process Modeling
+> - Software Design
+
 In our EventStorming we can find blue stickies and orange stickies. The first represent the Command inside our domain, and the second the Domain Events. A Command has the purpose to modify the state of our system, more specifically, of the our aggregate. When the state of our aggregate is changed, the aggregate itself raises a DomainEvent; this Domain Event will be used to the ReadModel side to update its database, used to satisfy the query that comes from UI. This pattern is named CQRS + ES, but it's another history.  
 As you can see, we use a common language to describe our intentions inside the EventStorming (CreatePurchaseOrder, PurchaseOrderCreated). Specifically, we use a past tense to describe an Event, because a DomainEvents is something that happened! This particular language that we use is named "Ubiquitous Language";  
 
@@ -78,13 +88,19 @@ The *mechanics* side concern the engineering practices and verification that all
 This covers engineering practices, testing, metrics and a host of other moving parts that make evolving software possible.  
 The *structure* side concerns the topology of software systems.  
 Do some architecture styles better facilitate building systems that are easier to evolve?  
-Are there structural decisions in architecture that should be avoided to make evolution easier?
+Are there structural decisions in architecture that should be avoided to make evolution easier?  
+
+Evolutionary architectures are built one part at a time, with many different increments. Speed to the next increment is key.
+
+# Fitness Functions
+Every system at different points of their life need to optimize to be "fit" for its environment. Evolutionary architectures make it explicit what "fit" means with as much automation as possible.  
 
 # Modular Monolithic
 ***Gall's Law***  
 A complex system that works is invariably found to have evolved from a simple system that worked. The inverse proposition also appears to be true:  
 A complex system designed from scratch never works and cannot be made to work. You have to stat over, beginning with a working simple system.  
-So, after hearing this theorem, are you still confident about starting a new project directly with microservices?
+So, after hearing this theorem, are you still confident about starting a new project directly with microservices?  
+(John Gall: Systemantics: How Systems Really Work and How They Fail)
 
 # References
 System design is inherently about boundaries (what's in, what's out, what spans, what move between), and about tradeoffs.
