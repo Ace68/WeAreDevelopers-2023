@@ -1,14 +1,14 @@
 # Introduction
 Thank you for attending to this workshop about Evolutionary Architectures using .NET to build a solution, and MS Azure to deploy it.  
 Today we are going to investigate the difficulties that every developers, or architects, has at the beginning of any project.  
-Usually someone ask to us to build a solution to solve some business problem, and the first thought in our heads is about the architecture.  
+Usually someone comes to us to with a request to solve some business problem, and the first thought in our heads is about the architecture.  
 We have a lot of possibilities, monolithic, microservices, serverless, SOA, EDA, etc.  
 The first problem that we encounter is that at the moment of taking this decision we have the lowest level of knowledge about the domain on which we are going to work.  
 In this situation it's easy to make things complicated, but it's complicated to make them simple (Gall's law).  
 We will come back on Gall's law later in this workshop.  
 
 # What is Evolutionary Architecture?
-A metaphor attempts to describe similarities between two unrelated thins in order to clarify their essentials elements. A good example of this is with software architecture. We commonly attempt to describe software architecture by comparing it to the structure of a building.  
+A metaphor attempts to describe similarities between two unrelated things in order to clarify their essentials elements. A good example of this is with software architecture. We commonly attempt to describe software architecture by comparing it to the structure of a building.  
 The old view is that in both cases are things that, once in place, are very hard to change later. And that's exactly where the building metaphor breaks down.  
 Today, the building metaphor for software architecture is no longer a valid one.
 
@@ -45,7 +45,7 @@ The translation slows down communication.
 Learning the Domain Language is crucial to establish effective communication between domain experts and developers.  
 
 # EventStorming
-EventStorming is a family of workshop united by one principle: the possibility of representing the complexity of the organizations using Events as a tool for exploration.  
+EventStorming is a family of workshop united by one principle: the possibility of representing the complexity of the system using Events as a tool for exploration.  
 The other key principle is that of exploration on collaboration design with different stakeholders and different interests.  
 The three main formats are:
 > - Big Picture
@@ -82,6 +82,13 @@ Both, monolithic and microservices, have pros and cons.
 > - Technology flexibility
 > - High reliability
 
+Microservices come with a premium:  
+> - Team coordination
+> - Dealing with failure
+> - Eventual Consistency
+> - Automating deployments
+> - Managing multiple services
+
 # Evolutionary Architecture
 Speaking about Evolutionary Architecture involve at least two areas of inquiry: *mechanics and structure*.  
 The *mechanics* side concern the engineering practices and verification that allow an architecture to evolve, which overlap architectural governance.  
@@ -92,15 +99,15 @@ Are there structural decisions in architecture that should be avoided to make ev
 
 Evolutionary architectures are built one part at a time, with many different increments. Speed to the next increment is key.
 
-# Fitness Functions
-Every system at different points of their life need to optimize to be "fit" for its environment. Evolutionary architectures make it explicit what "fit" means with as much automation as possible.  
-
 # Modular Monolithic
 ***Gall's Law***  
 A complex system that works is invariably found to have evolved from a simple system that worked. The inverse proposition also appears to be true:  
 A complex system designed from scratch never works and cannot be made to work. You have to stat over, beginning with a working simple system.  
 So, after hearing this theorem, are you still confident about starting a new project directly with microservices?  
 (John Gall: Systemantics: How Systems Really Work and How They Fail)
+
+# Fitness Functions
+Every system at different points of their life need to optimize to be "fit" for its environment. Evolutionary architectures make it explicit what "fit" means with as much automation as possible.  
 
 # References
 System design is inherently about boundaries (what's in, what's out, what spans, what move between), and about tradeoffs.
