@@ -107,7 +107,11 @@ So, after hearing this theorem, are you still confident about starting a new pro
 (John Gall: Systemantics: How Systems Really Work and How They Fail)
 
 # Fitness Functions
-Every system at different points of their life need to optimize to be "fit" for its environment. Evolutionary architectures make it explicit what "fit" means with as much automation as possible.  
+Every system at different points of their life need to optimize to be "fit" for its environment. Evolutionary architectures make it explicit what "fit" means with as much automation as possible. 
+
+# Consumer-Driven Contract
+For an HTTP API (and other synchronous protocols), this would involve checking that the provider accepts the expected requests, and that it returns the expected responses.  
+For a system that uses messages queues, this would involve checking that the provider generates the expected message.
 
 # References
 System design is inherently about boundaries (what's in, what's out, what spans, what move between), and about tradeoffs.
