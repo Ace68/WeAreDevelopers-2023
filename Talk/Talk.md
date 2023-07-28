@@ -1,7 +1,7 @@
 # Introduction
 Thank you for attending to this workshop about Evolutionary Architectures using .NET to build a solution, and MS Azure to deploy it.  
 Today we are going to investigate the difficulties that every developers, or architects, has at the beginning of any project.  
-Usually someone comes to us to with a request to solve some business problem, and the first thought in our heads is about the architecture.  
+Usually someone comes to us with a request to solve some business problem, and the first thought in our heads is about the architecture.  
 We have a lot of possibilities, monolithic, microservices, serverless, SOA, EDA, etc.  
 The first problem that we encounter is that at the moment of taking this decision we have the lowest level of knowledge about the domain on which we are going to work.  
 In this situation it's easy to make things complicated, but it's complicated to make them simple (Gall's law).  
@@ -36,7 +36,7 @@ Dan North recommends using ***Introducing Deliberate Discovery*** that is, seeki
 He suggests that we realize our position of being on at least the second level of ignorance when we start any project.  
 
 ## Domain Exploration
-Of course we have did a Domain Exploration, like an Event Storming. For those who don't know EventStorming, are a series of workshop to aim the exploration of the problem starting from a big picture to the Software Design exploration.  
+Of course we did a Domain Exploration, like an Event Storming. For those who don't know EventStorming, are a series of workshop to aim the exploration of the problem starting from a big picture to the Software Design exploration.  
 Why we need to explore the domain with Domain Experts? The lack of understanding always result in a lack of interest.  
 What went wrong with requirements?  
 Requirements not only focus on the solution and hide problems, but requirements also tend to translate business language to more technical language.  
