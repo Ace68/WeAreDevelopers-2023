@@ -9,9 +9,9 @@ namespace BrewUp.Modules.Purchases.Domain.CommandHandlers;
 
 public class ChangePurchaseOrderStatusToCompleteCommandHandler : CommandHandlerBase<ChangePurchaseOrderStatusToComplete>
 {
-	private readonly IMediator _serviceBus;
+	private readonly IPublisher _serviceBus;
 
-	public ChangePurchaseOrderStatusToCompleteCommandHandler(IMediator serviceBus)
+	public ChangePurchaseOrderStatusToCompleteCommandHandler(IPublisher serviceBus)
 	{
 		_serviceBus = serviceBus;
 	}

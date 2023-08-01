@@ -28,6 +28,8 @@ The article identifies file level of it
 > - ***The third level*** (lack of process). On this level you don't even know how find out about your lack of awareness. Literally, you don't have a way to figure out you don't know that you don't know.
 > - ***The fourth level*** (meta-ignorance). It is when you don't know about the five degrees of ignorance.
 
+https://www.markhneedham.com/blog/2011/01/26/the-five-orders-of-ignorance-phillip-g-armour/
+
 Ignorance is the opposite of knowledge, The only way to decrease ignorance is to increase understanding.  
 A high level of ignorance leads to a lack of knowledge and a misinterpretation of the problem, and therefore increases the chance of building the wrong solution.  
 Frequently we take our decision about the solution at the beginning of a project, and this is when we have the least knowledge and the most ignorance. (E. Evans - locking in your ignorance)

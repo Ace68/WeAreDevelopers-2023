@@ -7,9 +7,9 @@ namespace BrewUp.Modules.Warehouses.Domain.CommandHandlers;
 
 public class LoadBeerInStockCommandHandler : CommandHandlerBase<LoadBeerInStock>
 {
-	private readonly IMediator _serviceBus;
+	private readonly IPublisher _serviceBus;
 
-	public LoadBeerInStockCommandHandler(IMediator serviceBus)
+	public LoadBeerInStockCommandHandler(IPublisher serviceBus)
 	{
 		_serviceBus = serviceBus;
 	}

@@ -7,9 +7,9 @@ namespace BrewUp.Modules.Purchases.Domain.CommandHandlers;
 
 public sealed class CreatePurchaseOrderCommandHandler : CommandHandlerBase<CreatePurchaseOrder>
 {
-	private readonly IMediator _serviceBus;
+	private readonly IPublisher _serviceBus;
 
-	public CreatePurchaseOrderCommandHandler(IMediator serviceBus)
+	public CreatePurchaseOrderCommandHandler(IPublisher serviceBus)
 	{
 		_serviceBus = serviceBus;
 	}
